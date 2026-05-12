@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "prisma generate && PLAYWRIGHT_BROWSERS_PATH=/app/pw-browsers npx playwright install --with-deps chromium && next build",
+    "build": "prisma generate && next build",
     "start": "next start",
     "lint": "eslint"
   },

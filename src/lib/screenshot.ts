@@ -25,7 +25,10 @@ export async function takeScreenshot(url: string): Promise<ScreenshotResult> {
     // Dynamic import to avoid issues when playwright is not installed
     const { chromium } = await import("playwright");
 
-    const browser = await chromium.launch({
+    // Common paths for chromium on Linux/Railway
+    const executablePath = "/usr/bin/chromium";
+    const fs = await import("fs");
+    const launchOptions: any = {
       headless: true,
       args: [
         "--no-sandbox",
@@ -33,7 +36,13 @@ export async function takeScreenshot(url: string): Promise<ScreenshotResult> {
         "--disable-dev-shm-usage",
         "--disable-gpu",
       ],
-    });
+    };
+
+    if (fs.existsSync(executablePath)) {
+      launchOptions.executablePath = executablePath;
+    }
+
+    const browser = await chromium.launch(launchOptions);
 
     try {
       const context = await browser.newContext({

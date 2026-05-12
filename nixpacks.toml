@@ -1,0 +1,8 @@
+[phases.setup]
+nixPkgs = ["nodejs", "npm", "chromium", "glib", "nss", "nspr", "atk", "at-spi2-atk", "libdrm", "expat", "libxcb", "libxkbcommon", "pango", "cairo", "mesa-libgbm", "alsa-lib"]
+
+[phases.build]
+cmds = ["npm install", "prisma generate", "next build"]
+
+[phases.start]
+cmd = "npm run start"
