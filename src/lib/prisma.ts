@@ -1,10 +1,12 @@
 import { PrismaClient } from "@prisma/client";
-import { PrismaNeon as PrismaNeonAdapter } from "@prisma/adapter-neon";
-import { Pool, neonConfig } from "@neondatabase/serverless";
+import { PrismaNeon } from "@prisma/adapter-neon";
+import { neonConfig } from "@neondatabase/serverless";
 import ws from "ws";
 
-// Configure Neon for environments that don't support WebSockets natively (like Node.js)
-neonConfig.webSocketConstructor = ws;
+// Node.js ortamında WebSocket desteği için gerekli
+if (typeof window === "undefined") {
+  neonConfig.webSocketConstructor = ws;
+}
 
 const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined;
@@ -12,8 +14,11 @@ const globalForPrisma = globalThis as unknown as {
 
 const databaseUrl = process.env.DATABASE_URL!;
 
-const pool = new Pool({ connectionString: databaseUrl });
-const adapter = new PrismaNeonAdapter(pool);
+// Prisma 7+ ve yeni Neon Adapter kuralı: 
+// Pool nesnesini manuel oluşturmak yerine direkt ayarları adaptöre veriyoruz.
+const adapter = new PrismaNeon({
+  connectionString: databaseUrl,
+});
 
 export const prisma =
   globalForPrisma.prisma ??
