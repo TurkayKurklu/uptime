@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --bg-sidebar: #1e1e2d;
-  --bg-main: #f5f5f9;
-  --text-main: #333333;
-  --text-muted: #888888;
-  --color-up: #2ecc71;
-  --color-down: #e74c3c;
-  --color-degraded: #f1c40f;
-  --border-color: #e5e7eb;
+  --primary: #4f46e5;
+  --bg-main: #f8fafc;
+  --bg-sidebar: #0f172a;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --color-up: #10b981;
+  --color-down: #ef4444;
+  --border: #e2e8f0;
 }
 
 @theme inline {
@@ -16,64 +16,82 @@
   --color-main-bg: var(--bg-main);
   --color-up: var(--color-up);
   --color-down: var(--color-down);
-  --color-degraded: var(--color-degraded);
+  --color-primary: var(--primary);
 }
 
 body {
   background-color: var(--bg-main);
   color: var(--text-main);
   font-family: var(--font-poppins), sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Sidebar Styles */
+/* Modern Sidebar */
 .sidebar {
   background-color: var(--bg-sidebar);
-  color: white;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .sidebar-item {
   display: flex;
   align-items: center;
-  padding: 12px 20px;
-  color: #a2a3b7;
-  transition: all 0.2s;
+  padding: 10px 16px;
+  color: #94a3b8;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 8px;
-  margin: 4px 10px;
+  margin: 4px 12px;
 }
 
-.sidebar-item:hover, .sidebar-item.active {
-  background-color: rgba(255, 255, 255, 0.05);
+.sidebar-item:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+  color: #f1f5f9;
+}
+
+.sidebar-item.active {
+  background-color: var(--primary);
   color: white;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
 }
 
-/* Dashboard Widget */
+/* Premium Cards */
 .widget-card {
   background: white;
-  border-radius: 12px;
+  border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-  border: 1px solid var(--border-color);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--border);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-/* Monitor Row */
+.widget-card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+/* Monitor Table */
 .monitor-row {
   background: white;
-  border-bottom: 1px solid var(--border-color);
-  padding: 16px 24px;
-  transition: background 0.2s;
+  border-bottom: 1px solid var(--border);
+  padding: 14px 24px;
+  transition: all 0.2s;
 }
 
 .monitor-row:hover {
-  background: #fafafa;
+  background: #fcfcfd;
 }
 
-.uptime-bar {
-  display: flex;
-  gap: 2px;
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.2s;
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.15);
 }
 
-.uptime-tick {
-  width: 4px;
-  height: 20px;
-  border-radius: 2px;
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(79, 70, 229, 0.2);
 }

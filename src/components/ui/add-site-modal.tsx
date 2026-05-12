@@ -25,7 +25,7 @@ export function AddSiteModal({ isOpen, onClose, onAdd }: AddSiteModalProps) {
       setUrl("");
       onClose();
     } catch (err) {
-      setError("Failed to add monitor");
+      setError("İzleme eklenirken bir hata oluştu.");
     } finally {
       setLoading(false);
     }
@@ -34,27 +34,30 @@ export function AddSiteModal({ isOpen, onClose, onAdd }: AddSiteModalProps) {
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-slate-900/60 backdrop-blur-md">
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            className="bg-white rounded-xl shadow-2xl w-full max-w-md overflow-hidden"
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            className="bg-white rounded-3xl shadow-2xl w-full max-w-lg overflow-hidden"
           >
-            <div className="p-6 border-b bg-gray-50 flex justify-between items-center">
-              <h2 className="text-xl font-bold text-gray-800">Add New Monitor</h2>
-              <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            <div className="p-8 border-b bg-slate-50 flex justify-between items-center">
+              <div>
+                <h2 className="text-2xl font-black text-slate-800 tracking-tight">Yeni İzleme Ekle</h2>
+                <p className="text-sm text-slate-400 font-medium mt-1">Sitenizi 7/24 takip etmeye başlayın.</p>
+              </div>
+              <button onClick={onClose} className="p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-200/50 rounded-xl transition-all">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
               </button>
             </div>
 
-            <form onSubmit={handleSubmit} className="p-6 space-y-4">
+            <form onSubmit={handleSubmit} className="p-8 space-y-6">
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Friendly Name</label>
+                <label className="block text-xs font-black text-slate-400 uppercase tracking-widest mb-2">İzleme Adı</label>
                 <input
                   type="text"
-                  className="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
-                  placeholder="My Site"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-bold text-slate-700"
+                  placeholder="Örn: Benim Blog Sitem"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
@@ -62,10 +65,10 @@ export function AddSiteModal({ isOpen, onClose, onAdd }: AddSiteModalProps) {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">URL (or IP)</label>
+                <label className="block text-xs font-black text-slate-400 uppercase tracking-widest mb-2">URL Adresi (veya IP)</label>
                 <input
                   type="text"
-                  className="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all font-bold text-slate-700"
                   placeholder="https://example.com"
                   value={url}
                   onChange={(e) => setUrl(e.target.value)}
@@ -73,12 +76,14 @@ export function AddSiteModal({ isOpen, onClose, onAdd }: AddSiteModalProps) {
                 />
               </div>
 
-              <div className="flex gap-3 pt-4">
-                <button type="button" onClick={onClose} className="flex-1 px-4 py-2 border rounded-lg font-bold text-gray-600 hover:bg-gray-50">
-                  Cancel
+              {error && <p className="text-sm text-down font-bold">{error}</p>}
+
+              <div className="flex gap-4 pt-4">
+                <button type="button" onClick={onClose} className="flex-1 px-6 py-4 border-2 border-slate-100 rounded-2xl font-bold text-slate-500 hover:bg-slate-50 hover:border-slate-200 transition-all">
+                  İptal
                 </button>
-                <button type="submit" disabled={loading} className="flex-1 px-4 py-2 bg-up text-white rounded-lg font-bold hover:opacity-90">
-                  {loading ? "Adding..." : "Create Monitor"}
+                <button type="submit" disabled={loading} className="flex-1 px-6 py-4 bg-primary text-white rounded-2xl font-bold shadow-lg shadow-primary/30 hover:shadow-primary/40 hover:scale-[1.02] active:scale-[0.98] transition-all">
+                  {loading ? "Ekleniyor..." : "İzlemeyi Başlat"}
                 </button>
               </div>
             </form>

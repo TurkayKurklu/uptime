@@ -16,12 +16,12 @@ export function formatRelativeTime(date: Date | string): string {
   const diffHour = Math.floor(diffMin / 60);
   const diffDay = Math.floor(diffHour / 24);
 
-  if (diffSec < 60) return "Just now";
-  if (diffMin < 60) return `${diffMin}m ago`;
-  if (diffHour < 24) return `${diffHour}h ago`;
-  if (diffDay < 7) return `${diffDay}d ago`;
+  if (diffSec < 60) return "Az önce";
+  if (diffMin < 60) return `${diffMin}dk önce`;
+  if (diffHour < 24) return `${diffHour}sa önce`;
+  if (diffDay < 7) return `${diffDay}gün önce`;
 
-  return then.toLocaleDateString("en-US", {
+  return then.toLocaleDateString("tr-TR", {
     month: "short",
     day: "numeric",
   });

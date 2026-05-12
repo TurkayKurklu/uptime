@@ -19,49 +19,51 @@ export default function LoginPage() {
       router.push("/");
       router.refresh();
     } else {
-      alert("Invalid credentials");
+      alert("Hatalı e-posta veya şifre!");
       setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen bg-[#f5f5f9] flex flex-col items-center justify-center p-4">
-      <div className="flex items-center gap-3 mb-8">
-        <div className="w-10 h-10 bg-up rounded-lg flex items-center justify-center">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+    <div className="min-h-screen bg-main-bg flex flex-col items-center justify-center p-6">
+      <div className="flex items-center gap-4 mb-12">
+        <div className="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center shadow-xl shadow-primary/30">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
         </div>
-        <h1 className="text-3xl font-bold tracking-tight">UPTIME</h1>
+        <h1 className="text-4xl font-black tracking-tighter text-slate-900">UPTIME</h1>
       </div>
 
-      <div className="bg-white p-8 rounded-xl shadow-lg border w-full max-w-md">
-        <h2 className="text-xl font-bold mb-6 text-center">Sign In to Dashboard</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+      <div className="bg-white p-10 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 w-full max-w-md">
+        <h2 className="text-2xl font-bold mb-8 text-slate-800 text-center">Hoş Geldiniz</h2>
+        <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label className="block text-sm font-semibold text-gray-600 mb-1">Email</label>
+            <label className="block text-xs font-black text-slate-400 uppercase tracking-widest mb-2">E-posta Adresi</label>
             <input
               type="email"
-              className="w-full border rounded-lg px-4 py-2 outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-3 outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium"
+              placeholder="isim@sirket.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-semibold text-gray-600 mb-1">Password</label>
+            <label className="block text-xs font-black text-slate-400 uppercase tracking-widest mb-2">Şifre</label>
             <input
               type="password"
-              className="w-full border rounded-lg px-4 py-2 outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-3 outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium"
+              placeholder="••••••••"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
           </div>
-          <button type="submit" disabled={loading} className="w-full bg-up text-white py-3 rounded-lg font-bold hover:opacity-90 transition-opacity">
-            {loading ? "Signing in..." : "Login"}
+          <button type="submit" disabled={loading} className="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg hover:shadow-lg hover:shadow-primary/30 transition-all active:scale-[0.98]">
+            {loading ? "Giriş Yapılıyor..." : "Giriş Yap"}
           </button>
         </form>
-        <p className="mt-6 text-center text-sm text-gray-500">
-          Don't have an account? <Link href="/auth/register" className="text-blue-600 font-bold">Register</Link>
+        <p className="mt-8 text-center text-sm font-medium text-slate-500">
+          Hesabınız yok mu? <Link href="/register" className="text-primary font-bold hover:underline">Hemen Kaydolun</Link>
         </p>
       </div>
     </div>
