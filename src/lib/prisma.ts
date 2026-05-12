@@ -1,5 +1,4 @@
 import { PrismaClient } from "@prisma/client";
-import { PrismaNeon } from "@auth/prisma-adapter"; // Wait, PrismaNeon is from @prisma/adapter-neon
 import { PrismaNeon as PrismaNeonAdapter } from "@prisma/adapter-neon";
 import { Pool, neonConfig } from "@neondatabase/serverless";
 import ws from "ws";
