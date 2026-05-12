@@ -38,10 +38,14 @@ export async function POST(request: Request) {
       { message: "User created successfully" },
       { status: 201 }
     );
-  } catch (error) {
-    console.error("Registration error:", error);
+  } catch (error: any) {
+    console.error("CRITICAL REGISTRATION ERROR:", {
+      message: error.message,
+      stack: error.stack,
+      prisma: !!prisma,
+    });
     return NextResponse.json(
-      { error: "Internal server error" },
+      { error: error.message || "Internal server error" },
       { status: 500 }
     );
   }

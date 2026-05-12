@@ -23,10 +23,10 @@ export async function GET() {
     });
 
     return NextResponse.json(sites);
-  } catch (error) {
-    console.error("Failed to fetch sites:", error);
+  } catch (error: any) {
+    console.error("CRITICAL SITES FETCH ERROR:", error.message);
     return NextResponse.json(
-      { error: "Failed to fetch sites" },
+      { error: "Failed to fetch sites: " + error.message },
       { status: 500 }
     );
   }
