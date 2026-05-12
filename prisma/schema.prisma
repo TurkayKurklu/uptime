@@ -80,6 +80,9 @@ model CheckLog {
   site          Site     @relation(fields: [siteId], references: [id], onDelete: Cascade)
   statusCode    Int?
   responseTime  Int?
+  dnsTime       Int?     // Time to resolve DNS in ms
+  connectTime   Int?     // Time to establish connection in ms
+  sslTime       Int?     // Time for SSL handshake in ms
   isUp          Boolean
   errorMessage  String?
   errorCategory String?

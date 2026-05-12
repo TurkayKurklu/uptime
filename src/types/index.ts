@@ -16,6 +16,9 @@ export interface CheckLogData {
   siteId: string;
   statusCode: number | null;
   responseTime: number | null;
+  dnsTime: number | null;
+  connectTime: number | null;
+  sslTime: number | null;
   isUp: boolean;
   errorMessage: string | null;
   errorCategory: string | null;
@@ -27,6 +30,9 @@ export interface CheckResult {
   isUp: boolean;
   statusCode: number | null;
   responseTime: number;
+  dnsTime?: number | null;
+  connectTime?: number | null;
+  sslTime?: number | null;
   errorMessage: string | null;
   errorCategory: string | null;
 }
