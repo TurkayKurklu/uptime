@@ -3,7 +3,7 @@ import Credentials from "next-auth/providers/credentials";
 
 export const authConfig = {
   pages: {
-    signIn: "/auth/login",
+    signIn: "/login",
   },
   callbacks: {
     authorized({ auth, request: { nextUrl } }) {
