@@ -61,13 +61,14 @@ export function Dashboard() {
     <div className="flex min-h-screen bg-main-bg">
       {/* Sidebar */}
       <aside className={`sidebar w-64 fixed inset-y-0 left-0 z-50 transform ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} transition-transform duration-300 lg:relative lg:translate-x-0`}>
-        <div className="p-8 mb-4">
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/20">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        <div className="px-8 py-10 mb-4 flex flex-col items-center">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="w-12 h-12 bg-white/10 rounded-2xl p-2.5 backdrop-blur-md border border-white/5 shadow-2xl">
+              <img src="/webisse-icon.png" alt="Webisse" className="w-full h-full object-contain" />
             </div>
-            <span className="font-bold text-xl tracking-tight text-white">UPTIME</span>
           </div>
+          <span className="font-black text-xl tracking-[0.2em] text-white">WEBISSE</span>
+          <div className="h-1 w-8 bg-primary rounded-full mt-2 opacity-50" />
         </div>
 
         <nav className="flex flex-col gap-1">
@@ -92,24 +93,28 @@ export function Dashboard() {
       {/* Main Content */}
       <main className="flex-1 flex flex-col min-w-0">
         {/* Header */}
-        <header className="h-20 bg-white border-b px-10 flex items-center justify-between sticky top-0 z-40">
+        <header className="h-20 glass-header px-10 flex items-center justify-between sticky top-0 z-40">
           <div className="flex items-center gap-4">
             <button onClick={() => setSidebarOpen(!sidebarOpen)} className="lg:hidden p-2 -ml-2 text-slate-400">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
             </button>
-            <h2 className="text-xl font-bold text-slate-800">Genel Bakış</h2>
+            <div className="flex flex-col">
+              <h2 className="text-xl font-extrabold text-slate-900 tracking-tight">Sistem Paneli</h2>
+              <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Genel Bakış ve Durum</p>
+            </div>
           </div>
           <div className="flex items-center gap-4">
             <button 
               id="run-checks-btn"
               onClick={handleRunChecks}
-              className="hidden md:flex items-center gap-2 text-sm font-bold text-primary hover:bg-primary/5 px-4 py-2 rounded-lg transition-colors"
+              className="hidden md:flex items-center gap-2 btn-secondary text-sm"
             >
-              Kontrolleri Çalıştır
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+              Manuel Kontrol
             </button>
-            <div className="h-8 w-[1px] bg-slate-100 mx-2 hidden md:block" />
+            <div className="h-6 w-[1px] bg-slate-200 mx-2 hidden md:block" />
             <button onClick={() => setModalOpen(true)} className="btn-primary flex items-center gap-2 text-sm">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
               Yeni İzleme
             </button>
           </div>

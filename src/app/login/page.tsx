@@ -26,11 +26,11 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen bg-main-bg flex flex-col items-center justify-center p-6">
-      <div className="flex items-center gap-4 mb-12">
-        <div className="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center shadow-xl shadow-primary/30">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+      <div className="flex flex-col items-center gap-4 mb-12">
+        <div className="w-20 h-20 bg-white rounded-3xl flex items-center justify-center shadow-2xl shadow-slate-200 border border-slate-100 p-4">
+          <img src="/webisse-icon.png" alt="Webisse" className="w-full h-full object-contain" />
         </div>
-        <h1 className="text-4xl font-black tracking-tighter text-slate-900">UPTIME</h1>
+        <h1 className="text-4xl font-black tracking-[0.2em] text-slate-900">WEBISSE</h1>
       </div>
 
       <div className="bg-white p-10 rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 w-full max-w-md">

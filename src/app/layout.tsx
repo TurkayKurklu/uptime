@@ -10,8 +10,11 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "UPTIME Monitoring",
-  description: "Simple and professional uptime monitoring service.",
+  title: "Webisse Uptime",
+  description: "Professional uptime monitoring service by Webisse.",
+  icons: {
+    icon: "/webisse-icon.png",
+  },
 };
 
 export default function RootLayout({
