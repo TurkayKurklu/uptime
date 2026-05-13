@@ -61,14 +61,14 @@ export function Dashboard() {
     <div className="flex min-h-screen bg-main-bg">
       {/* Sidebar */}
       <aside className={`sidebar w-64 fixed inset-y-0 left-0 z-50 transform ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} transition-transform duration-300 lg:relative lg:translate-x-0`}>
-        <div className="px-8 py-10 mb-4 flex flex-col items-center">
-          <div className="flex items-center gap-3 mb-2">
-            <div className="w-12 h-12 bg-white/10 rounded-2xl p-2.5 backdrop-blur-md border border-white/5 shadow-2xl">
+        <div className="px-8 py-12 mb-4 flex flex-col items-center">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-20 h-20 bg-white/10 rounded-[2rem] p-4 backdrop-blur-md border border-white/10 shadow-2xl transition-transform hover:scale-110">
               <img src="/webisse-icon.png" alt="Webisse" className="w-full h-full object-contain" />
             </div>
           </div>
-          <span className="font-black text-xl tracking-[0.2em] text-white">WEBISSE</span>
-          <div className="h-1 w-8 bg-primary rounded-full mt-2 opacity-50" />
+          <span className="font-black text-2xl tracking-[0.3em] text-white">WEBISSE</span>
+          <div className="h-1 w-10 bg-primary rounded-full mt-3 opacity-60" />
         </div>
 
         <nav className="flex flex-col gap-1">

@@ -10,12 +10,12 @@ interface StatusBadgeProps {
 
 const statusConfig = {
   up: {
-    label: "Online",
+    label: "AKTİF",
     color: "#10b981",
     bg: "rgba(16, 185, 129, 0.1)",
   },
   down: {
-    label: "Offline",
+    label: "OFFLINE",
     color: "#ef4444",
     bg: "rgba(239, 68, 68, 0.1)",
   },
