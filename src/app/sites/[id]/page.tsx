@@ -39,24 +39,24 @@ export default function SiteDetailsPage({ params }: { params: Promise<{ id: stri
 
   return (
     <div className="min-h-screen bg-main-bg pb-20">
-      <div className="glass-header pt-12 pb-10 px-10 mb-8 sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
+      <div className="bg-white/50 backdrop-blur-md pt-8 pb-8 px-10 border-b border-slate-100 mb-8">
+        <div className="max-w-7xl mx-auto flex flex-col items-center text-center relative">
           <Link href="/" className="absolute top-8 left-10 hidden lg:flex items-center gap-2 text-[10px] font-black text-slate-400 hover:text-primary transition-all uppercase group">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="group-hover:-translate-x-1 transition-transform"><polyline points="15 18 9 12 15 6"/></svg>
             Panoya Dön
           </Link>
           
-          <div className="mb-6 transition-transform hover:scale-110 duration-500">
-            <img src="/webisse-icon.png" alt="Webisse" className="w-20 h-20 object-contain drop-shadow-2xl" />
+          <div className="mb-4 transition-transform hover:scale-110 duration-500">
+            <img src="/webisse-icon.png" alt="Webisse" className="w-16 h-16 object-contain" />
           </div>
 
-          <div className="flex flex-col items-center gap-2 mb-8">
+          <div className="flex flex-col items-center gap-1 mb-6">
             <div className="flex items-center gap-3">
-              <h1 className="text-4xl font-black text-slate-900 tracking-tighter">{site.name}</h1>
-              <StatusBadge status={site.lastStatus} size="md" />
+              <h1 className="text-3xl font-black text-slate-900 tracking-tighter">{site.name}</h1>
+              <StatusBadge status={site.lastStatus} size="sm" />
             </div>
-            <p className="text-slate-400 font-bold text-sm flex items-center gap-2">
-              <svg className="opacity-30" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            <p className="text-slate-400 font-bold text-[10px] flex items-center gap-2">
+              <svg className="opacity-30" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
               {site.url}
             </p>
           </div>
