@@ -63,7 +63,7 @@ export function Dashboard() {
       <aside className={`sidebar w-64 fixed inset-y-0 left-0 z-50 transform ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} transition-transform duration-300 lg:relative lg:translate-x-0`}>
         <div className="px-8 py-12 mb-4 flex flex-col items-center">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-20 h-20 bg-white/10 rounded-[2rem] p-4 backdrop-blur-md border border-white/10 shadow-2xl transition-transform hover:scale-110">
+            <div className="w-24 h-24 transition-transform hover:scale-110">
               <img src="/webisse-icon.png" alt="Webisse" className="w-full h-full object-contain" />
             </div>
           </div>

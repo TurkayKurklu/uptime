@@ -39,35 +39,40 @@ export default function SiteDetailsPage({ params }: { params: Promise<{ id: stri
 
   return (
     <div className="min-h-screen bg-main-bg pb-20">
-      {/* Header & Title */}
-      <div className="glass-header pt-8 pb-6 px-10 mb-8 sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex flex-col gap-4 w-full md:w-auto">
-            <Link href="/" className="inline-flex items-center gap-2 text-[10px] font-black text-slate-400 hover:text-primary transition-all uppercase group w-fit">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="group-hover:-translate-x-1 transition-transform"><polyline points="15 18 9 12 15 6"/></svg>
-              Panoya Dön
-            </Link>
-            <div className="flex items-center gap-6">
-              <div className="w-16 h-16 bg-white rounded-2xl p-3 shadow-xl border border-slate-100 hidden sm:block">
-                <img src="/webisse-icon.png" alt="Webisse" className="w-full h-full object-contain" />
-              </div>
-              <div>
-                <div className="flex items-center gap-3 mb-1">
-                  <h1 className="text-3xl font-black text-slate-900 tracking-tighter">{site.name}</h1>
-                  <StatusBadge status={site.lastStatus} size="sm" />
-                </div>
-                <p className="text-slate-400 font-bold text-xs flex items-center gap-2">
-                  <svg className="opacity-50" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-                  {site.url}
-                </p>
-              </div>
+      <div className="glass-header pt-12 pb-10 px-10 mb-8 sticky top-0 z-40">
+        <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
+          <Link href="/" className="absolute top-8 left-10 hidden lg:flex items-center gap-2 text-[10px] font-black text-slate-400 hover:text-primary transition-all uppercase group">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="group-hover:-translate-x-1 transition-transform"><polyline points="15 18 9 12 15 6"/></svg>
+            Panoya Dön
+          </Link>
+          
+          <div className="mb-6 transition-transform hover:scale-110 duration-500">
+            <img src="/webisse-icon.png" alt="Webisse" className="w-20 h-20 object-contain drop-shadow-2xl" />
+          </div>
+
+          <div className="flex flex-col items-center gap-2 mb-8">
+            <div className="flex items-center gap-3">
+              <h1 className="text-4xl font-black text-slate-900 tracking-tighter">{site.name}</h1>
+              <StatusBadge status={site.lastStatus} size="md" />
             </div>
+            <p className="text-slate-400 font-bold text-sm flex items-center gap-2">
+              <svg className="opacity-30" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+              {site.url}
+            </p>
           </div>
           
-          <button onClick={() => window.location.reload()} className="btn-secondary flex items-center gap-2 text-xs w-full md:w-auto justify-center">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
-            Verileri Yenile
-          </button>
+          <div className="flex items-center gap-4">
+            <button 
+              onClick={() => {
+                setLoading(true);
+                window.location.reload();
+              }} 
+              className="btn-secondary flex items-center gap-2 text-xs px-8"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+              Verileri Yenile
+            </button>
+          </div>
         </div>
       </div>
 
